@@ -1,4 +1,4 @@
-.NavbarItems {
+/* .NavbarItems {
     background:#1b262c;
     height: 80px;
     display: flex;
@@ -15,7 +15,7 @@
 }
 
  .fa-film {
-    margin-left: 3rem;
+    margin-left: 0.5rem;
     font-size: 1.6rem;
 } 
 
@@ -125,4 +125,88 @@
         display: none;
     }
  
+} */
+
+
+/* My custom css*/
+.navbar-dark{
+    background-color:#1b262c  !important;
+} 
+
+.bg-dark{
+    background-color:#1b262c  !important;
 }
+
+.navbar-brand {
+    font-size: x-large;
+}
+
+.nav-link:hover {
+    color: #bbe1fa;
+    border-radius: 4px;
+    background-color: #2e3d46;
+    transition: all 0.2s ease-out;
+}
+.fa-film {
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+}
+.btn  {
+    color: #bbe1fa;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #bbe1fa;
+}
+
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #bbe1fa;
+}
+.btn:hover {
+    color: #bbe1fa;
+    background-color: #2e3d46;
+}
+
+.dropdown-menu.show {
+    background-color: #1b262c ;
+    text-align: center;
+}
+.genre {
+    text-decoration: none;
+    color: #bbe1fa;
+}
+
+.genre:hover {
+    text-decoration: none;
+    color: #bbe1fa;
+}
+.dropdown-item {
+    color: #bbe1fa;
+}
+.dropdown-item:hover {
+    background-color: #2e3d46;
+    color: #bbe1fa;
+}
+
+.mr-sm-2 {
+    height: 28px;
+    opacity: 0.2;
+    border-radius: 4px;
+    
+}
+.form-control {
+    color: black !important;
+}
+
+@media screen and (max-width: 960px) {
+    .mr-sm-2 {
+        height: 28px;
+        opacity: 0.2;
+        border-radius: 4px;
+        width: 170px;
+    }
+    
+}
+
+
