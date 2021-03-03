@@ -1,0 +1,98 @@
+
+.card{
+  position:relative;
+    max-width: 300px;
+    margin: auto;
+    font-family: arial;
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+.card button:hover {
+    opacity: 0.7;
+  }
+
+  .card img{
+    margin-bottom: 5px;
+  }
+.card a{
+    text-decoration: none;
+    color: black;
+}
+.card a :hover{
+  color:rgb(34, 34, 34)
+}
+.Mposter{
+  border-radius: 5px;
+}
+.title{
+  color:white;
+}
+
+.btn:hover {
+  background-color: #ddd;
+  
+}
+.btn.active {
+  background-color:#0f4c75;
+  color: white;
+}
+
+.visualDetails{
+
+}
+
+.typeIcon{
+   position: absolute;
+   color: white;
+   left: 14px;
+   top: 10px;
+   z-index: 500;
+}
+
+.details{
+  display: flex;
+  justify-content: space-between;
+}
+
+.details span{
+  display: flex;
+  align-items: center;
+}
+
+.details span svg{
+
+  margin-right: 5px  !important;
+}
+
+.visualDetails h1{
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 26px;
+}
+.visualDetails{
+  padding: 10px 0;
+}
+
+.trailer{
+
+  position: absolute;
+  color: white;
+  right: 14px;
+  top: 10px;
+  z-index: 500;
+}
+
+.imageTrailerContainer{
+  display: block;
+  position: relative;
+width: fit-content;
+height: auto;
+}
