@@ -5,7 +5,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import Hero from "../home/hero-section/hero";
 import Footer from "../home/footer/footer";
-import SimilarMovies from "./similar-movies/SimilarMovies";
+// import SimilarMovies from "./similar-movies/SimilarMovies";
 
 const URL = 'http://127.0.0.1:8000/api/visual/genres/1';
 
@@ -37,10 +37,10 @@ const MovieDetail = () => {
             {(movieData.length != 0)
                 ?
                 <>
-                    <SimilarMovies
-                        value={movieData.movie}
-                        isFetching={movieData.isFetching}
-                    />
+                    {/*<SimilarMovies*/}
+                    {/*    value={movieData.movie}*/}
+                    {/*    isFetching={movieData.isFetching}*/}
+                    {/*/>*/}
 
                 </>
                 :

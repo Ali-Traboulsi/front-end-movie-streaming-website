@@ -17,6 +17,7 @@ const Home = () => {
             try {
                 setData({movies: data.movies, isFetching: true});
                 const response = await axios.get(URL);
+                console.log(response);
                 setData({movies: response.data.visuals.data, isFetching: false});
                 console.log(response.data.visuals.data);
             } catch (e) {
