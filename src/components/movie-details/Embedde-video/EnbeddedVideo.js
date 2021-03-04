@@ -12,5 +12,4 @@ export class EnbeddedVideo extends Component {
     );
   }
 }
-
 export default EnbeddedVideo;

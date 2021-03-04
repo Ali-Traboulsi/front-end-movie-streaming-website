@@ -1,15 +1,48 @@
 import React, { Component } from 'react';
 import SliderComponent from '../SliderComponent/SliderComponent';
 import './videomodal.css';
-import ModalVideo from 'react-modal-video'
-import Slider from 'react-slick';
+import ModalVideo from 'react-modal-video';
+
 
 export default class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
-      data : [],
+      data: [
+        {
+          id: 2,
+          movie_title: 'old',
+          duration: '01:45:00',
+          language_id: 2,
+          movie_trailer: 'https://www.youtube.com/embed/kcIr_qq15CY',
+          year: '2021',
+          imdb_rating: 5.4,
+          type_id: 3,
+          poster_image_link:
+            'https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg',
+          slug: 'hd',
+          created_at: null,
+          updated_at: null,
+          type: {
+            id: 3,
+            type_in_english: 'Movie',
+            type_in_arabic: 'فيلم',
+          },
+          genre: [
+            {
+              id: 1,
+              genre_in_arabic: 'romance',
+              genre_in_english: 'romance',
+              pivot: {
+                vidsual_id: 2,
+                genre_id: 1,
+              },
+            },
+          ],
+          visual_description: [],
+        },
+      ],
       videoId: '',
     };
     this.GET_ALL_API_PATH = "http://localhost:8000/api/visuals/";
@@ -35,24 +68,26 @@ export default class MainPage extends Component {
   }
 
   shouldComponentUpdate(nextState, nextProps) {
-    return nextState.visuals !== this.state.visuals || nextState.isOpen !== this.state.isOpen;
+    return true;
+    //nextState.visuals !== this.state.visuals || nextState.isOpen !== this.state.isOpen;
   }
 
   getDataByGenre(genre) {
-    let arr = this.state.data.filter(e => {
-      return (e.genre.filter(g => {
-        return g.genre_in_english === genre
-      }).length > 0);
-    })
-
-
-    console.log("From the filter",arr);
+    let arr = this.state.data.filter((e) => {
+      return (
+        e.genre.filter((g) => {
+          return g.genre_in_english === genre;
+        }).length > 0
+      );
+    });
 
     return arr;
   }
 
   render() {
-    { console.log("Render MainPage") }
+    {
+      console.log('Render MainPage');
+    }
     const settings = {
       dots: true,
       infinite: true,
@@ -61,33 +96,35 @@ export default class MainPage extends Component {
       slidesToScroll: 4,
     };
 
- 
-    {console.log(">>>",this.state.data)}
     return (
       <>
-      <ModalVideo
-      channel='youtube'
-      isOpen={this.state.isOpen}
-      videoId={this.state.videoId}
-      onClose={() => this.setState({ isOpen: false })}
-      />
-       
-      <div className="container">
-        <section>
-        <SliderComponent
-            openModal={this.openModal}
-            visuals={this.getDataByGenre("romance")}
-          genre='Romance' />
-        </section>
+        <ModalVideo
+          channel='youtube'
+          isOpen={this.state.isOpen}
+          videoId={this.state.videoId}
+          onClose={() => this.setState({ isOpen: false })}
+        />
 
-        <section>
-        <SliderComponent
-            openModal={this.openModal}
-            visuals={this.getDataByGenre("drama")}
-          genre='Drama' />
-        </section>
+        <div className='container'>
+          <section>
+            {console.log('Get Data By Genre:', this.getDataByGenre('romance'))}
+            <SliderComponent
+              openModal={this.openModal}
+              visuals={this.getDataByGenre('romance')}
+              genre='Romance'
+            />
+          </section>
+
+          <section>
+            {console.log('Get Data By Genre:', this.getDataByGenre('drama'))}
+            <SliderComponent
+              openModal={this.openModal}
+              visuals={this.getDataByGenre('drama')}
+              genre='Drama'
+            />
+          </section>
         </div>
-        </>
+      </>
     );
   }
 }
@@ -98,7 +135,7 @@ export default class MainPage extends Component {
 [
         {
             "id": 2,
-            "movie_title": "boom",
+            "movie_title": "old",
             "duration": "01:45:00",
             "language_id": 2,
             "movie_trailer": "https://www.youtube.com/embed/kcIr_qq15CY",

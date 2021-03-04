@@ -1,0 +1,12 @@
+.movieDetailsList{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movieDetailsList li{
+  display:inline;
+}
+
+.movieDetailsList li label{
+    display: inline;
+}

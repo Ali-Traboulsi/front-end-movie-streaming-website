@@ -31,7 +31,7 @@ export default class SliderComponent extends Component {
   }
 
   shouldComponentUpdate(nextState,nextProps) {
-    return nextState.data !== this.state.data;
+    return true;//nextState.data !== this.state.data;
 }
 
   render() {

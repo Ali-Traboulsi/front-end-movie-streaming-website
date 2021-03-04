@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import SingleCard from '../../movie-card/SingleCard/SingleCard';
+import SingleCard from '../../SingleCard/SingleCard';
 import Slider from 'react-slick';
-export default class SliderCarousel extends Component {
+
+export default class AlsoYouMayLike extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +31,7 @@ export default class SliderCarousel extends Component {
   }
 
   shouldComponentUpdate(nextState, nextProps) {
-    return nextState.data !== this.state.data;
+    return true;//nextState.data !== this.state.data;
   }
   render() {
     const settings = {

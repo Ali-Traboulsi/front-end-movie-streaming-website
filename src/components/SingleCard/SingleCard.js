@@ -7,7 +7,6 @@ import Classes from './../SingleCard/SingleCard.module.css';
 import { Link } from 'react-router-dom';
 import TodayIcon from '@material-ui/icons/Today';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import { CallMissedSharp } from '@material-ui/icons';
 
 export default class SingleCard extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ export default class SingleCard extends Component {
     if (this.props.type == 'serie') {
       path = `/series/${this.props.id}`;
     }
-
+ 
     return (
       <div className={Classes.card}>
         <Link to={path}>
