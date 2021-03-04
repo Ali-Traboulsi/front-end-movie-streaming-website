@@ -1,5 +1,7 @@
 .movieDetailsList{
     display: flex;
+    padding:0;
+    margin-bottom:0 !important;
     justify-content: space-between;
 }
 
@@ -7,6 +9,22 @@
   display:inline;
 }
 
-.movieDetailsList li label{
+.movieDetailsList li label, .ratingLabel{
     display: inline;
+    margin-right: 4px;
+    font-weight: 600;
+}
+.container{
+  margin-top:50px;
+}
+.description{
+  margin-bottom: 5px;
+}
+
+.poster{
+   width: 100%;
+} 
+
+.title{
+  font-weight: 900;
 }

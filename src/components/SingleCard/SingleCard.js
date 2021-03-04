@@ -14,8 +14,9 @@ export default class SingleCard extends Component {
   }
   render() {
     
-    {  console.log("PROPS",this.props)
-  }
+    {
+      console.log('PROPS FROM SINGLE CARD', this.props);
+    }
     let path = '';
     if (this.props.type == 'movie') {
       path = `/movie/${this.props.id}`;
@@ -29,27 +30,27 @@ export default class SingleCard extends Component {
  
     return (
       <div className={Classes.card}>
-        <Link to={path}>
+        <Link to='/movie/1'>
           <span className={Classes.typeIcon}>
             {this.props.type === 'movie' ? <TheatersIcon /> : <LiveTvIcon />}
           </span>
-          <span onClick={() => {
-                this.props.openModal(this.props.trailer.split('/')[4]);
-              }} className={Classes.trailer}>
-             <YouTubeIcon /> Trailer
+          <span
+            onClick={() => {
+              this.props.openModal(this.props.trailer.split('/')[4]);
+            }}
+            className={Classes.trailer}
+          >
+            <YouTubeIcon /> Trailer
           </span>
           <div className={Classes.imageTrailerContainer}>
-          <div  className={Classes.trailer}>
-           
-            </div>
-          <img
-            className={Classes.Mposter}
-            src={this.props.imageUrl}
-            alt=''
-            style={{ width: '100%' }}
-          />
+            <div className={Classes.trailer}></div>
+            <img
+              className={Classes.Mposter}
+              src={this.props.imageUrl}
+              alt=''
+              style={{ width: '100%' }}
+            />
           </div>
-       
         </Link>
         <div className={Classes.visualDetails}>
           <Link to={path}>

@@ -5,12 +5,7 @@ export class AboutMovie extends Component {
     return (
       <div>
         <p>
-          <img
-            className={Classes.img}
-            src='pineapple.jpg'
-            alt='Pineapple'
-            style='width:170px;height:170px;margin-right:15px;'
-          />
+          <img className={Classes.img} src='pineapple.jpg' alt='Pineapple' />
           <h2>Float Left</h2>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
           imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae

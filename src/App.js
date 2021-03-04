@@ -16,13 +16,14 @@ function App() {
     <div className='App'>
       <Router>
         <Switch>
-          <Route path='/'>
-            <MainPage />
+          <Route path='/'> 
+            <MoviDetails id={3}  />
           </Route>
 
-          <Route path='/movie/:id' render={params =>renderMovieDetails(params) }>
-           <MoviDetails/>
-          </Route>
+          <Route
+            path='/movie/:id'
+            render={(params) => renderMovieDetails(params)}
+          />
         </Switch>
       </Router>
     </div>
