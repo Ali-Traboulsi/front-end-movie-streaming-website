@@ -1,27 +1,37 @@
 import React from 'react';
-import './App.css';
+
 import Navbar from './components/navbar-container/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MoviDetails from './components/movie-details/Main-Movie-Details/MoviDetails';
+import './App.css';
+import MainPage from './components/MainPage/MainPage';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+
 
 function App() {
+
+
+  let renderMovieDetails = (routerProps) => {
+    let id = parseInt(routerProps.match.params.id)
+    return <MoviDetails id={id}/>;
+  }
+
   return (
 
-    
-    <div className="App">
-
+    <div className='App'>
       <Router>
-        <Navbar />
         <Switch>
-        <Route path="/">
-        </Route>
-
-        <Route path="/movie">
-
-        </Route>
+          <Route path='/' exact={true}>
+            <MainPage />
+          </Route>
+          <Route
+            path='/movie/:id'
+            render={(props) => {return <MoviDetails {...props} /> }}
+          />
+           
+         
         </Switch>
-     </Router>
+      </Router>
     </div>
   );
 }
-
 export default App;

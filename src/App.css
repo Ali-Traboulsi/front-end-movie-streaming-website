@@ -1,7 +1,10 @@
-/* .App {
-  text-align: center;
-  font-family: 'Ubuntu', sans-serif;
-} */
+
+:root {
+  --primary:  #f11616;
+  --secondary: #96ac1b;
+}
+.App {
+}
 
 *{
   box-sizing: border-box;
