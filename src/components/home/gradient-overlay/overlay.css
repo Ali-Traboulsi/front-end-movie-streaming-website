@@ -1,0 +1,12 @@
+.overlay-container {
+display: grid;
+max-width: 100%;
+background: black;
+background: linear-gradient(
+60deg,
+rgba(0, 0, 0, 0.7777485994397759) 30%,
+rgba(255, 255, 255, 0) 100%
+);
+/*start at black at the bottom left'ish and goes at a 60% angle.
+ This will make the white easy to read with nearly any image.*/
+}

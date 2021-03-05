@@ -1,0 +1,23 @@
+
+.movie_title {
+    font-size: 3.5rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    margin: 0 0 2rem;
+    text-transform: uppercase;
+    background-clip: border-box;
+    /*-webkit-text-fill-color: transparent;*/
+    -webkit-background-clip: text;
+}
+
+/*.movie_title {*/
+/*    font-family: "Font Awesome\ 5 Free", sans-serif;*/
+/*    font-size: xxx-large;*/
+/*//stroke-width: darken(blue, 10);*/
+/*    color: darkblue;*/
+/*}*/
+
+
+.details-container {
+    padding-left: 20px;
+}

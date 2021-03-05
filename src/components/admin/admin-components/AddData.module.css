@@ -1,0 +1,16 @@
+.container {
+    height: 100vh;
+}
+
+.formContainer {
+    width: 24rem;
+}
+.formLegend {
+    width : 14rem;
+    background: #dee2e6;
+}
+.errrMessage {
+    font-size: 14rem;
+    letter-spacing: 0.05rem;
+    padding-left: 0.25rem;
+}
