@@ -17,20 +17,22 @@ export default class SingleCard extends Component {
     {
       console.log('PROPS FROM SINGLE CARD', this.props);
     }
-    let path = '';
-    if (this.props.type == 'movie') {
-      path = `/movie/${this.props.id}`;
+    let path = () => {
+      if (this.props.type == 'movie') {
+        return `/movie/${this.props.id}`;
+      }
+      if (this.props.type == 'tv show') {
+        return `/tv-show/${this.props.id}`;
+      }
+      if (this.props.type == 'serie') {
+        return `/series/${this.props.id}`;
+      }  
     }
-    if (this.props.type == 'tv show') {
-      path = `/tv-show/${this.props.id}`;
-    }
-    if (this.props.type == 'serie') {
-      path = `/series/${this.props.id}`;
-    }
+    
  
     return (
       <div className={Classes.card}>
-        <Link to='/movie/1'>
+        <Link to={path}>
           <span className={Classes.typeIcon}>
             {this.props.type === 'movie' ? <TheatersIcon /> : <LiveTvIcon />}
           </span>

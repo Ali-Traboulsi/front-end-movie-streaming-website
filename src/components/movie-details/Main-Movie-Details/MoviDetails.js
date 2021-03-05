@@ -11,16 +11,14 @@ export default class MovieDetails extends Component {
     this.state = {
       isOpen: false,
       data: {},
-      similarMovies: [],
       videoId: '',
     }
   
-    this.GET_MOVIE_BY_GENRE_API_PATH =
-      'http://localhost:8000/api/home/genre?genre=';
     this.GET_MOVIE_BY_ID_API_PATH = 'http://localhost:8000/api/movie/';
+    // this.GET_MOVIE_BY_ID_API_PATH = 'http://localhost:8000/api/movie/';
     this.openModal = this.openModal.bind(this);
 
-    this.getData();
+   
   }
   //this.props.location.pathname
   //this.props.location
@@ -33,28 +31,30 @@ export default class MovieDetails extends Component {
   }
 
   async getData() {
-    console.log("get data");
-    let id = this.props.id;
-    const response = await fetch(this.GET_MOVIE_BY_ID_API_PATH + id);
+    console.log("id",this.props.match.params.id);
+    const id = this.props.match.params.id;
+    const response = await fetch(this.GET_MOVIE_BY_ID_API_PATH +id);
     const json = await response.json();
-    //console.log('response Movie Details', await json);
-    this.setState({ data: await json.data[0] }, () => {
+    console.log(json);
+    console.log('response Movie Details', await json);
+    this.setState({ data: await json.data[0]}, () => {
       console.log('STATE IN MOVIE DETAILS ', this.state);
-      this.getSimilarMovie();
+      // this.getSimilarMovie();
     });
   }
-
-  async getSimilarMovie() {
-    const genre = this.state.data.genre[0].genre_in_english;
-    console.log("Get Similar movies",)
-     const response = await fetch(this.GET_MOVIE_BY_GENRE_API_PATH + genre);
-    const json = await response.json();
-    console.log('response', await json);
-    this.setState({ similarMovies: await json.data.data }); 
-  }
+// 
+  // async getSimilarMovie() {
+  //   const genre = this.state.data.genre[0].genre_in_english;
+  //   console.log("Get Similar movies",)
+  //    const response = await fetch(this.GET_MOVIE_BY_GENRE_API_PATH + genre);
+  //   const json = await response.json();
+  //   console.log('response', await json);
+  //   this.setState({ similarMovies: await json.data.data }); 
+  // }
 
   componentDidMount() {
     console.log('From Didmount in Movie Details', window.location.href);
+    this.getData();
   }
 
   shouldComponentUpdate(nextState, nextProps) {
@@ -96,12 +96,10 @@ export default class MovieDetails extends Component {
   
 
     <div className='container'>
-          { console.log("Similar Movies ",this.state.similarMovies)}
       <AlsoYouMayLike
-        openModal={this.openModal}
-        visuals={this.state.similarMovies}
-            genre='Crime'
-            test={this.state.data.genre[0].genre_in_english}
+            openModal={this.openModal}
+            genre={this.state.data.genre[0].genre_in_english}
+           
           />
           
       
@@ -112,7 +110,7 @@ export default class MovieDetails extends Component {
   render() {
     return (
       <>
-        {(this.state.data.movie_title)?this.renderPage():<h1>Error</h1>}
+        {(this.state.data.movie_title)?this.renderPage():<h1>Loading...</h1>}
       </>
     );
   }

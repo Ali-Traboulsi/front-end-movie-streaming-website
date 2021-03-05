@@ -9,57 +9,25 @@ export default class MainPage extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      data: [
-        {
-          id: 2,
-          movie_title: 'old',
-          duration: '01:45:00',
-          language_id: 2,
-          movie_trailer: 'https://www.youtube.com/embed/kcIr_qq15CY',
-          year: '2021',
-          imdb_rating: 5.4,
-          type_id: 3,
-          poster_image_link:
-            'https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg',
-          slug: 'hd',
-          created_at: null,
-          updated_at: null,
-          type: {
-            id: 3,
-            type_in_english: 'Movie',
-            type_in_arabic: 'فيلم',
-          },
-          genre: [
-            {
-              id: 1,
-              genre_in_arabic: 'romance',
-              genre_in_english: 'romance',
-              pivot: {
-                vidsual_id: 2,
-                genre_id: 1,
-              },
-            },
-          ],
-          visual_description: [],
-        },
-      ],
+      data: [],
       videoId: '',
     };
-    this.GET_ALL_API_PATH = "http://localhost:8000/api/visuals/";
+
+    this.GET_ALL_API_PATH = 'http://localhost:8000/api/home/genre?genre=crime';
     this.openModal = this.openModal.bind(this);
   }
 
   openModal(id) {
-    console.log("Video Id",id);
+    console.log('Video Id', id);
     this.setState({ videoId: id, isOpen: true }, (state) => {
-      console.log("State",this.state);
+      console.log('State', this.state);
     });
   }
 
   async getData() {
     const response = await fetch(this.GET_ALL_API_PATH);
     const json = await response.json();
-    console.log("response",await json)
+    console.log('response', await json);
     this.setState({ data: await json.data.data });
   }
 
@@ -95,7 +63,7 @@ export default class MainPage extends Component {
       slidesToShow: 4,
       slidesToScroll: 4,
     };
-
+    console.log(this.getDataByGenre('Romance'));
     return (
       <>
         <ModalVideo
@@ -110,7 +78,7 @@ export default class MainPage extends Component {
             {console.log('Get Data By Genre:', this.getDataByGenre('romance'))}
             <SliderComponent
               openModal={this.openModal}
-              visuals={this.getDataByGenre('romance')}
+              visuals={this.getDataByGenre('Romance')}
               genre='Romance'
             />
           </section>
@@ -119,7 +87,7 @@ export default class MainPage extends Component {
             {console.log('Get Data By Genre:', this.getDataByGenre('drama'))}
             <SliderComponent
               openModal={this.openModal}
-              visuals={this.getDataByGenre('drama')}
+              visuals={this.getDataByGenre('Crime')}
               genre='Drama'
             />
           </section>

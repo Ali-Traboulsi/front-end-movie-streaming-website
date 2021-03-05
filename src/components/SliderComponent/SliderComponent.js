@@ -2,52 +2,53 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import SingleCard from '../SingleCard/SingleCard';
 import Classes from "./sliderComponent.module.css";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+// import Carousel from 'react-multi-carousel';
+// import 'react-multi-carousel/lib/styles.css';
 export default class SliderComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
-    }
-    console.log("SliderComponet - props", this.props);
+      data: [],
+    };
+    console.log('SliderComponet - props', this.props);
   }
 
-  componentDidMount() {
-    let data = this.props.visuals.map((visual) => {
+  componentDidUpdate() {
+    console.log(this.props.visuals,   'Ali');
+    const data = this.props.visuals.map((visual) => {
+      
       return (
-          <li>
-            <SingleCard
-              imageUrl={visual.poster_image_link}
-              title={visual.movie_title}
-              duration={visual.duration}
-              type={visual.type.type_in_english}
-              year={visual.year}
-              trailer={visual.movie_trailer}
-              rating={visual.imdb_rating}
-              id={visual.id}
-              openModal={this.props.openModal}
-            />
-          </li>
+        <li>
+          <SingleCard
+            imageUrl={visual.poster_image_link}
+            title={visual.movie_title}
+            duration={visual.duration}
+            type={visual.types.type_in_english}
+            year={visual.year}
+            trailer={visual.movie_trailer}
+            rating={visual.imdb_rating}
+            id={visual.id}
+            openModal={this.props.openModal}
+          />
+        </li>
       );
     });
 
-    this.setState({ data: data });
+  //   this.setState({ data: data });
+    //
   }
 
-  shouldComponentUpdate(nextState,nextProps) {
-    return true;//nextState.data !== this.state.data;
-}
+  shouldComponentUpdate(nextState, nextProps) {
+    return true; //nextState.data !== this.state.data;
+  }
 
   render() {
-
     let settings = {
-      infinite: false,
-      speed: 1000,
-      arrows: true,
-      slidesToShow: 5,
-      slidesToScroll: 4,
-  
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 10,
+      dots: true,
+      arrows:true,
       responsive: [
         {
           breakpoint: 960,
@@ -65,32 +66,31 @@ export default class SliderComponent extends Component {
         },
       ],
     };
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3, // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
+    const responsive = {
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+        slidesToSlide: 3, // optional, default to 1.
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+        slidesToSlide: 2, // optional, default to 1.
+      },
+      mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1, // optional, default to 1.
+      },
+    };
     return (
       <div>
         <h1 className={Classes.genre}>{this.props.genre}</h1>
         <hr className={Classes.horizontalLine} />
         <Slider {...settings}>
-        {console.log("DATa",this.state.data)}
-        </Slider>
-        
-        <Carousel
+
+        {/* <Carousel
+          
           swipeable={false}
           draggable={false}
           showDots={true}
@@ -106,10 +106,32 @@ const responsive = {
           removeArrowOnDeviceType={['tablet', 'mobile']}
           deviceType={this.props.deviceType}
           dotListClass='custom-dot-list-style'
-          itemClass="carousel-item"
-        >
-          {this.state.data}
-        </Carousel>
+          itemClass='carousel-item'
+          arialLabel = "bla"
+        > */}
+
+          {this.props.visuals.map((visual) => {
+      {console.log("visual id",visual.id)}
+            return (
+             
+              <SingleCard
+                imageUrl={visual.poster_image_link}
+                title={visual.movie_title}
+                duration={visual.duration}
+                type={visual.types.type_in_english}
+                year={visual.year}
+                trailer={visual.movie_trailer}
+                rating={visual.imdb_rating}
+                id={visual.id}
+                openModal={this.props.openModal}
+              />
+            );
+          })
+          }
+          </Slider>
+
+
+            {/* </Carousel> */}
       </div>
     );
   }
