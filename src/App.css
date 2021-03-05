@@ -1,0 +1,13 @@
+
+:root {
+  --primary:  #f11616;
+  --secondary: #96ac1b;
+}
+.App {
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rajdhani', sans-serif;}
