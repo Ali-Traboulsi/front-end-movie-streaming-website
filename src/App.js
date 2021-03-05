@@ -1,8 +1,11 @@
 import React from 'react';
+
+import Navbar from './components/navbar-container/Navbar';
 import MoviDetails from './components/movie-details/Main-Movie-Details/MoviDetails';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+
 
 function App() {
 
@@ -13,6 +16,7 @@ function App() {
   }
 
   return (
+
     <div className='App'>
       <Router>
         <Switch>
