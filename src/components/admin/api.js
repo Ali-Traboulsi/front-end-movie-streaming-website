@@ -21,7 +21,7 @@ export const adminLogin = async (data) => {
 
         // const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64')
 
-        let response = await axios.post(`${baseUrl}login`,
+        const response = await axios.post(`${baseUrl}login`,
             {
                 email: data.email,
                 password: data.password
@@ -79,21 +79,35 @@ export const adminLogin = async (data) => {
 export const logout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("expire_at");
+    throw new Error(errMessage)
 }
 
 
 export const uploadMovies = async (data) => {
-    const response = await fetch(`${baseUrl}visual`, {
-        method : 'POST',
-        headers : {'content-type' : 'application/json'},
-        body : JSON.stringify(data)
-    })
+    // const response = await fetch(`${baseUrl}visual`, {
+    //     method : 'POST',
+    //     headers : {'content-type' : 'application/json'},
+    //     body : JSON.stringify(data)
+    // })
+    //
+    // if (response.ok) {return response.json()}
+    // const errMessage = await response.message
 
-    if (response.ok) {return response.json()}
-    const errMessage = await response.message
-    throw new Error(errMessage)
+    const response = await axios.post(`${baseUrl}visual`
+        , data)
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+    ;
+    return response;
 }
 
+export const fetchMovieData = async () =>  {
+    const response = await axios.get(`${baseUrl}visual`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+
+    return response;
+}
 
 // export const updatMovies = async (data) => {
 //     const response = await fetch(`${baseUrl}update`, {
@@ -107,25 +121,4 @@ export const uploadMovies = async (data) => {
 //      throw new Error(errMessage)
 // }
 
-
-// const login = (email, password) => {
-// let loginFormData = new FormData();
-// loginFormData.append("grant_type", "password");
-// loginFormData.append("email", email);
-// loginFormData.append("password", password);
-// return new Promise((resolve, reject) => {
-//      axios
-//          .post(`${baseUrl}login`, loginFormData, {
-//              headers: { Authorization: "Basic {secret_key}" }
-//          })
-//          .then(async response => {
-//              response.data.lastRefresh = new Date().getTime();
-//              localStorage.setItem("my_app_user", JSON.stringify(response.data));
-//              getUser()
-//                  .then(response => { resolve(response); })
-//                  .catch(error => { reject(error); });
-//          })
-//          .catch(error => { reject(error); });
-// });
-// };
 

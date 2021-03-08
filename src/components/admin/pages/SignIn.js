@@ -38,11 +38,10 @@ export default function SignIn() {
         try {
             const success = await adminLogin(data)
             console.log(success);
-            // if (success) {
+            if (success) {
                 // localStorage.setItem("token", data.email);
-                // history.push('/')
-
-            // }
+                history.push('/dashboard')
+            }
         } catch (err) {
             const errMessage = err.message
             alert(err)

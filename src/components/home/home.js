@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Hero from './hero-section/hero';
 import Footer from "./footer/footer";
+import {baseUrl} from "../admin/api";
 
-const URL = 'http://127.0.0.1:8000/api/visual';
+// const URL = 'http://127.0.0.1:8000/api/visual';
 
 const Home = () => {
 
@@ -16,7 +17,7 @@ const Home = () => {
         const fetchMovies = async () => {
             try {
                 setData({movies: data.movies, isFetching: true});
-                const response = await axios.get(URL);
+                const response = await axios.get(`${baseUrl}visual`);
                 console.log(response);
                 setData({movies: response.data.visuals.data, isFetching: false});
                 console.log(response.data.visuals.data);

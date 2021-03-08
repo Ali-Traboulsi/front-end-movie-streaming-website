@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Route,
     Switch,
-    Redirect
+    Redirect, useHistory
 } from 'react-router-dom';
 import Home from '../components/home/home';
 
@@ -11,14 +11,14 @@ import Home from '../components/home/home';
 import SignIn from '../components/admin/pages/SignIn';
 import Dashboard from '../components/admin/pages/Dashboard';
 import AddDataForm from '../components/admin/admin-components/AddDataForm';
-import AddData from '../components/admin/admin-components/AddData';
 import {adminLogin} from "../components/admin/api";
+import Admin from '../components/admin/admin-components/Admin';
 
 
 const authRouth = (Component) => () => {
     // const response = await adminLogin(data);
 
-    if (localStorage.getItem('access_token') === '') {
+    if (localStorage.getItem('access_token')) {
         return <Component />
     } else {
         return <Redirect to='/login' />
@@ -26,6 +26,7 @@ const authRouth = (Component) => () => {
 }
 
 function Routes(props) {
+
     return (
         <Router {...props}>
             <Switch>
@@ -34,9 +35,9 @@ function Routes(props) {
                 {/*    <Redirect to="/home" />*/}
                 {/*</Route>*/}
                 <Route path='/home' component={Home}/>
-                <Route path='/dashboard' component={authRouth(Dashboard)}/>
+                <Route path='/dashboard' component={authRouth(Dashboard)} />
                 <Route path='/dataupload' component={authRouth(AddDataForm)} />
-                <Route path='/adddata' component={authRouth(AddData)}/>
+                <Route path='/admin' component={authRouth(Admin)}/>
             </Switch>
         </Router>
     );

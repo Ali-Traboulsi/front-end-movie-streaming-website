@@ -1,0 +1,80 @@
+.container {
+    /* height: 100%;
+    width: 100%; */
+    margin: 35px;
+    position: absolute;
+}
+.logout-btn {
+    border-radius: 4px;
+    background-color: #bbe1fa;
+    border: none;
+    color: #1b262c;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.add-btn {
+    border-radius: 4px;
+    background-color: #bbe1fa;
+    border: none;
+    color: #1b262c;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.add-btn:hover {
+    background-color: #0f4c75;
+}
+.add-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.add-btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.add-btn:hover span {
+    padding-right: 25px;
+}
+
+.add-btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.logout-btn:hover {
+    background-color: #0f4c75;
+}
+.btns {
+    margin-top: 200px;
+}
+.outside {
+    margin: 0;
+    background-color: #1b262c;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.logo {
+    margin-left: 550px;
+    margin-top: 30px;
+    align-self: center;
+}
+.btns {
+    margin-left: 520px;
+}
